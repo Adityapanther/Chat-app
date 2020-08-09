@@ -1,20 +1,40 @@
-var app = require('express')();
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+// const socketio = require('socket.io');
+const http = require('http');
 
-var http = require('http');
-var server = http.createServer(app);
-// var io = require('socket.io').listen(server);
 
-// socket.on('connection', (socket)=>{
-// console.log("user");
 
+// init
+const app = express();
+const server = http.createServer(app);
+// const io = socketio.listen(server)
+
+
+// body parser init
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
+
+// express init
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')))
+
+
+//router
+app.get('/', (req, res)=>{
+    res.render('index.html')
+})
+
+// io.on('connection', (socket)=>{
+//     console.log("user conected");
+    
 // })
 
-app.get('/', (req, res)=>{
-    res.sendFile(__dirname+"/index.html");
-});
-
-
-server.listen('3000', ()=>{
-    console.log("port listening..");
+// server port init or listing
+server.listen("3000", ()=>{
+    console.log("port:3000");
     
-});
+})
