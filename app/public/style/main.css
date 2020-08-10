@@ -1,0 +1,64 @@
+*,body,html{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    text-decoration: none;
+    border-style: none;
+    outline: none;
+}
+
+header{
+    width: 100%;
+    max-width: 1366px;
+    height: 55px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+header h1{
+    color: rgb(0, 0, 0);
+    font-size: 1.8vw;
+    font-family: kaushan script;
+    font-weight: bold;
+}
+
+.chat-area{
+    width: 50%;
+    height: 60vh;
+    margin: 30px auto 0 auto;
+    background-color: #f3f3f3;
+}
+
+.chat-area .sent-chat{
+    width: 100%;
+    height: 3em;
+    background-color: tomato;
+    position: relative;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chat-area .sent-chat input[type=text]{
+    width: 70%;
+    height: 80%;
+    border-radius: 2px;
+    padding-left: 5px;
+    
+}
+
+.chat-area .sent-chat button{
+    width: 5em;
+    height: 35px;
+    margin-left: 10px;
+    border-radius: 2px;
+    color: white;
+    background-color: rgb(18, 20, 20);
+}

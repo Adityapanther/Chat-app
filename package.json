@@ -2,9 +2,9 @@
   "name": "chat-app",
   "version": "1.0.0",
   "description": "Realtime chat app using socket.io",
-  "main": "server.js",
+  "main": "app/server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aditya panther",
