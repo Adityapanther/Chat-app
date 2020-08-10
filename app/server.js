@@ -26,12 +26,14 @@ io.on('connect', ()=>{
 
 io.on('connection', (socket)=>{
     socket.on('data', (msg) =>{
-        console.log(msg);
+        socket.broadcast.emit("message", msg)
+    })
+    console.log("new user Connected");
+    socket.broadcast.emit("message", "new user joined us")
+
+    socket.disconnected({
         
     })
-    socket.emit("message", "hello arh !")
-    console.log("new user Connected");
-    socket.broadcast.emit("message", "new user connected")
 })
 
 

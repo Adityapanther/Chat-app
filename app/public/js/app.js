@@ -7,9 +7,7 @@ subBtn.addEventListener('click',sendMessage )
 
 function sendMessage(){
     if(validateField){
-        socket.emit('data', queryText.valu)
-        console.log(queryText.value);
-        
+        socket.emit('data', queryText.value)
         
         clearField();
     }
