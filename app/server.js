@@ -30,10 +30,6 @@ io.on('connection', (socket)=>{
     })
     console.log("new user Connected");
     socket.broadcast.emit("message", "new user joined us")
-
-    socket.disconnected({
-        
-    })
 })
 
 
