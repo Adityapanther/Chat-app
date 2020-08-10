@@ -5,6 +5,7 @@
     text-decoration: none;
     border-style: none;
     outline: none;
+    box-sizing: border-box;
 }
 
 header{
@@ -32,14 +33,54 @@ header h1{
     background-color: #f3f3f3;
 }
 
+.chat-area .chat-container{
+    width: 100%;
+    height: 88%;
+    padding: 10px;
+}
+
+.chat-area .chat-container .reciever-msg{
+    width: 60%;
+    min-height: 30px;
+    background-color: #cecece;
+    padding: 5px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.reciever-msg .from-user h3{
+   font-family: noto serif;
+   font-size: 1vw;
+   font-weight: bold;
+   color: rgba(218, 27, 27, 0.801);
+}
+
+.msg-style{
+    color: #161212;
+    font-size: 1.4vw;
+    font-weight: 700;
+}
+
+
+.chat-area .chat-container .sender-msg {
+    width: 60%;
+    min-height: 30px;
+    background-color: #dfd7d7;
+    padding: 5px;
+    float: right;
+
+}
+
+.chat-area .chat-container .sender-msg .msg-me{
+    float: right;
+}
+
+
+
 .chat-area .sent-chat{
     width: 100%;
-    height: 3em;
+    height: 12%;
     background-color: tomato;
-    position: relative;
-    top: 100%;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,8 +96,8 @@ header h1{
 }
 
 .chat-area .sent-chat button{
-    width: 5em;
-    height: 35px;
+    width: 15%;
+    height: 80%;
     margin-left: 10px;
     border-radius: 2px;
     color: white;
