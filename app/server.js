@@ -15,14 +15,25 @@ app.use(express.static(path.join(__dirname , "public")));
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
-app.get('/', (rq, res)=>{
-    res.render('<h1>hi, Aditya</h1>')
+app.get('/', (req, res)=>{
+    res.render('index.html')
+})
+
+io.on('connect', ()=>{
+    console.log("server connected");
+    
 })
 
 io.on('connection', (socket)=>{
+    socket.on('data', (msg) =>{
+        console.log(msg);
+        
+    })
+    socket.emit("message", "hello arh !")
     console.log("new user Connected");
-    
+    socket.broadcast.emit("message", "new user connected")
 })
+
 
 
 

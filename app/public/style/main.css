@@ -30,7 +30,11 @@ header h1{
     width: 50%;
     height: 60vh;
     margin: 30px auto 0 auto;
-    background-color: #f3f3f3;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px #cecece,
+    -1px 1px 3px #cecece;
+    /* border: 1px solid #000; */
+    border-radius: 3px;
 }
 
 .chat-area .chat-container{
