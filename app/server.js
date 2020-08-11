@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const path = require('path');
 const socket = require('socket.io');
+const ejs = require('ejs');
 
 // init
 const app = express();
@@ -11,12 +12,16 @@ const io = socket(server)
 
 // public folder init
 app.use(express.static(path.join(__dirname , "public")));
+
+// init ejs template
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname + '/templates'))
 // body-parser init
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
 app.get('/', (req, res)=>{
-    res.render('index.html')
+    res.render('model')
 })
 
 io.on('connect', ()=>{
