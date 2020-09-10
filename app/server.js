@@ -24,6 +24,22 @@ app.get('/', (req, res)=>{
     res.render('model')
 })
 
+app.post('/', (req, res) =>{
+    var user = req.body['user-name']
+    var room = req.body['chat-room']
+
+    if(user != "" && room != ""){
+        res.redirect('/chat')
+    }
+    
+    
+    
+})
+
+app.get("/chat", (req, res) =>{
+    res.render("index.ejs")
+})
+
 io.on('connect', ()=>{
     console.log("server connected");
     
