@@ -1,8 +1,9 @@
-const socket = io();
 const subBtn = document.getElementById('submitBtn');
 const queryText = document.getElementById('query')
 
+
 subBtn.addEventListener('click',sendMessage )
+
 
 
 function sendMessage(){

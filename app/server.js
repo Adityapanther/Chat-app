@@ -20,37 +20,70 @@ app.set('views', path.join(__dirname + '/templates'))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
+var users = []
+var ids
+
 app.get('/', (req, res)=>{
     res.render('model')
 })
+
 
 app.post('/', (req, res) =>{
     var user = req.body['user-name']
     var room = req.body['chat-room']
 
     if(user != "" && room != ""){
+        var myUser = {
+            uId: ids,
+            name: user,
+            room: room
+        }
+        users.push(myUser)
         res.redirect('/chat')
+        console.log(users);
+        
     }
-    
-    
     
 })
 
 app.get("/chat", (req, res) =>{
-    res.render("index.ejs")
+    res.render("index")
 })
 
-io.on('connect', ()=>{
+io.on('connect', (data)=>{
     console.log("server connected");
     
+
 })
 
+
 io.on('connection', (socket)=>{
-    socket.on('data', (msg) =>{
-        socket.broadcast.emit("message", msg)
+    ids = socket.id
+    
+
+    socket.on("data", msg =>{
+        console.log(msg);
+        
     })
-    console.log("new user Connected");
-    socket.broadcast.emit("message", "new user joined us")
+
+    socket.on("disconnect", (e)=>{
+        if(e){
+            users.forEach(user => {
+                if (user.uId == ids) {
+                    
+                    delete users[user]
+
+
+
+                }
+                console.log(users);
+                
+            })
+        }
+        
+    })
+    
+
 })
 
 
